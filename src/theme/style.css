@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,400..700;1,400..700&family=Nabla&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-nabla: 'Nabla', system-ui;
+  --font-expletus: 'Expletus Sans', sans-serif;
+}

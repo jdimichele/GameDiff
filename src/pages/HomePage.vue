@@ -1,5 +1,5 @@
 <template>
-  <h1>GameDiff</h1>
+  <h1 class="text-9xl font-nabla">GameDiff</h1>
   <p>
     Has it been awhile since you've played {{ randomGameName }}? Want to catch up fast without
     reading all the patch notes? We've got you covered.
@@ -8,17 +8,17 @@
   <input type="text" />
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      randomGameName: ['League of Legends', 'DotA2', 'Counter-Strike 2'],
-      gameName: '',
-    }
-  },
-  mounted() {
-    this.gameNameDisplay()
-  },
-  methods: {},
+<script setup>
+import { onMounted } from 'vue'
+
+const randomGameName = ['League of Legends', 'Deadlock', 'Counter-Strike 2']
+//const gameName = ''
+
+onMounted(() => {
+  gameNameDisplay()
+})
+
+function gameNameDisplay() {
+  print(randomGameName)
 }
 </script>
