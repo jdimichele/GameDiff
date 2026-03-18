@@ -4,4 +4,15 @@
 @theme {
   --font-nabla: 'Nabla', system-ui;
   --font-expletus: 'Expletus Sans', sans-serif;
+  --color-golden-orange-50: #fff6e6;
+  --color-golden-orange-100: #feeecd;
+  --color-golden-orange-200: #fedd9a;
+  --color-golden-orange-300: #fdcb68;
+  --color-golden-orange-400: #fdba35;
+  --color-golden-orange-500: #fca903;
+  --color-golden-orange-600: #ca8702;
+  --color-golden-orange-700: #976502;
+  --color-golden-orange-800: #654401;
+  --color-golden-orange-900: #322201;
+  --color-golden-orange-950: #231800;
 }

@@ -1,12 +1,12 @@
 <template>
   <div
-    class="relative min-h-screen bg-black text-white font-expletus overflow-x-hidden flex items-start justify-center px-6 pt-12 pb-16"
+    class="relative min-h-screen bg-black text-golden-orange-50 font-expletus overflow-x-hidden flex items-start justify-center px-6 pt-12 pb-16"
   >
     <main class="relative z-2 w-full max-w-170 flex flex-col gap-10">
       <header class="flex flex-col gap-5 animate-fade-down">
         <div class="flex flex-col gap-1"></div>
         <h1
-          class="font-nabla text-[clamp(4rem,14vw,7.5rem)] leading-none text-[#00e5ff] [text-shadow:0_0_40px_rgba(0,229,255,0.35),0_0_80px_rgba(0,229,255,0.15)] tracking-tight"
+          class="font-nabla text-[clamp(4rem,14vw,7.5rem)] leading-none text-[#FFD700] [text-shadow:0_0_40px_rgba(0,229,255,0.35),0_0_80px_rgba(0,229,255,0.15)] tracking-tight"
         >
           GameDiff
         </h1>
@@ -17,7 +17,7 @@
             <transition name="ticker" mode="out-in">
               <span
                 :key="currentGame"
-                class="inline-block font-expletus text-base text-[#4cff6d] bg-[rgba(76,255,100,0.08)] border border-[rgba(76,255,94,0.25)] px-[0.45em] py-[0.1em] rounded-sm"
+                class="inline-block font-expletus text-base text-golden-orange-50 bg-golden-orange-900 border border-golden-orange-300 px-[0.45em] py-[0.1em] rounded-sm"
                 >{{ currentGame }}</span
               >
             </transition>
@@ -31,8 +31,8 @@
         class="relative bg-[#0d1117] border border-[#1e2d3d] rounded-sm p-8 flex flex-col gap-6 animate-fade-up"
       >
         <div>
-          <p class="font-expletus text-[0.7rem] text-[#4a7855] tracking-widest uppercase mb-3">
-            <span class="text-[#00e5ff] mr-1">&gt;_</span> How should we find patch notes?
+          <p class="font-expletus text-[0.7rem] text-[#FFD700] tracking-widest uppercase mb-3">
+            <span class="text-white mr-1">&gt;_</span> How should we find patch notes?
           </p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <button
@@ -49,11 +49,11 @@
               <span class="text-xl">{{ mode.icon }}</span>
               <span
                 class="font-expletus text-xs tracking-wide"
-                :class="sourceMode === mode.id ? 'text-[#00ff6a]' : 'text-[#c9d8e8]'"
+                :class="sourceMode === mode.id ? 'text-[#FFD700]' : 'text-[#c9d8e8]'"
               >
                 {{ mode.label }}
               </span>
-              <span class="text-[0.68rem] text-[#4a7850] font-light leading-snug">{{
+              <span class="text-[0.68rem] text-white font-light leading-snug">{{
                 mode.desc
               }}</span>
             </button>
