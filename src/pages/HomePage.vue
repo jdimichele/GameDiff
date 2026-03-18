@@ -88,7 +88,7 @@
                 <li
                   v-for="s in suggestions"
                   :key="s"
-                  class="font-expletus text-sm text-[#4a7850] px-3.5 py-2 cursor-pointer flex items-center gap-2.5 border-b border-[rgba(30,61,40,0.5)] last:border-b-0 transition-all duration-150 hover:bg-[rgba(0,255,60,0.07)] hover:text-[#00ff5e]"
+                  class="font-expletus text-sm text-white px-3.5 py-2 cursor-pointer flex items-center gap-2.5 border-b border-[rgba(30,61,40,0.5)] last:border-b-0 transition-all duration-150 hover:bg-[rgba(0,255,60,0.07)] hover:text-[#00ff5e]"
                   @mousedown.prevent="selectSuggestion(s)"
                 >
                   <span class="text-[#4a7850] text-[0.7rem] opacity-60">◈</span> {{ s }}
@@ -164,8 +164,8 @@
           class="mt-1 border rounded-sm font-expletus text-sm px-6 py-3.5 text-center tracking-[0.05em] transition-all duration-200"
           :class="
             canSubmit
-              ? 'border-[#00e5ff] bg-[#00e5ff] text-[#080c10] cursor-pointer shadow-[0_0_24px_rgba(0,229,255,0.3)] hover:shadow-[0_0_40px_rgba(0,229,255,0.45)] hover:-translate-y-px'
-              : 'border-[#1e2d3d] text-[#4a6078] cursor-not-allowed'
+              ? 'border-[#00ff55] bg-[#00ff5e] text-[#08100c] cursor-pointer shadow-[0_0_24px_rgba(0,229,255,0.3)] hover:shadow-[0_0_40px_rgba(0,229,255,0.45)] hover:-translate-y-px'
+              : 'border-[#1e3d2b] text-[#4a785a] cursor-not-allowed'
           "
           :disabled="!canSubmit"
           @click="handleSubmit"
@@ -175,7 +175,7 @@
             v-else
             class="flex items-center justify-center gap-3 font-medium tracking-widest uppercase"
           >
-            <span class="relative w-2 h-2 rounded-full bg-[#080c10] shrink-0">
+            <span class="relative w-2 h-2 rounded-full bg-black shrink-0">
               <span
                 class="absolute -inset-0.75 rounded-full border border-black animate-ping opacity-75"
               ></span>
@@ -185,7 +185,11 @@
         </button>
       </section>
 
-      <footer></footer>
+      <footer class="font-expletus text-[0.68rem] text-[#4a7854] text-center flex items-center justify-center gap-2.5 animate-fade-up [animation-delay:0.3s]">
+        <span class="bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] text-[#00ff37] px-1.5 py-0.5 rounded-sm text-[0.65rem]">v0.1.0</span>
+        <span class="opacity-30">·</span>
+        <span>No more reading 47 patch notes just to start gaming again.</span>
+      </footer>
     </main>
   </div>
 </template>
@@ -221,12 +225,18 @@ const GAME_LIST = [
   'Path of Exile 2',
 ]
 
+const currentGame = ref(GAME_LIST[0])
+let tickerIndex = 0
+let tickerTimer = null
+function advanceTicker() {
+  tickerIndex = (tickerIndex + 1) % GAME_LIST.length
+  currentGame.value = GAME_LIST[tickerIndex]
+}
+
 const sourceMode = ref('search')
 
 const needsGameName = computed(() => sourceMode.value === 'search')
 const needsManual = computed(() => sourceMode.value === 'manual')
-
-const currentGame = ref(GAME_LIST[0])
 
 const gameName = ref('')
 const manualNotes = ref('')
@@ -287,13 +297,6 @@ function selectSuggestion(s) {
   showSuggestions.value = false
 }
 
-let tickerIndex = 0
-let tickerTimer = null
-function advanceTicker() {
-  tickerIndex = (tickerIndex + 1) % GAME_LIST.length
-  currentGame.value = GAME_LIST[tickerIndex]
-}
-
 onMounted(() => {
   tickerTimer = setInterval(advanceTicker, 2400)
 })
@@ -325,17 +328,15 @@ onBeforeUnmount(() => {
 }
 
 .animate-fade-down {
-  animation: fade-down 0.6s ease both;
+  animation: fade-down 0.6s ease;
 }
+
 .animate-fade-up {
-  animation: fade-up 0.6s 0.15s ease both;
+  animation: fade-up 0.6s ease;
 }
 
 .ticker-enter-active {
-  animation: fade-up 0.25s ease both;
-}
-.ticker-leave-active {
-  animation: fade-down 0.25s ease both;
+  animation: fade-up 0.5s ease;
 }
 
 .fade-enter-active,

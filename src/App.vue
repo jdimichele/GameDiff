@@ -7,7 +7,7 @@
     />
 
     <patch-diff-page
-      v-else-if="page === 'results'"
+      v-else-if="page === 'patchdiff'"
       key="results"
       :game-name="query.gameName"
       :manual-notes="query.manualNotes"
@@ -33,7 +33,7 @@ const query = ref({
 
 function goToResults(payload) {
   query.value = payload
-  page.value = 'results'
+  page.value = 'patchdiff'
 }
 
 function goHome() {
